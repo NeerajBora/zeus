@@ -56,7 +56,6 @@ public class ZeusResource {
         return ResponseEntity.ok(taskDetailsDTO);
     }
 
-
     //need to discuss on this
     @PostMapping(value = {"/events/{event}"}, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> publishEvents(@PathVariable("event") String event) {
