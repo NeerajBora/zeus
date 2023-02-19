@@ -24,12 +24,12 @@ public class ZeusResource {
     ZeusService zeusService;
 
     @PostMapping(value = {"/registerTenant"}, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> registerTenant(@RequestBody TenantDTO tenant) {
-        LOGGER.info("[registerTenant] Tenant registration start for: {}", tenant);
+    public ResponseEntity<?> tenantRegistration(@RequestBody TenantDTO tenant) {
+        LOGGER.info("[tenantRegistration] Tenant registration start for: {}", tenant);
         Instant start = Instant.now();
         zeusService.registerTenant(tenant);
         Instant end = Instant.now();
-        LOGGER.info("Time taken to for publishEvents api execution: {} ms",
+        LOGGER.info("Time taken to for tenantRegistration api execution: {} ms",
                 Duration.between(start, end).toMillis());
         return ResponseEntity.ok("Event Successfully published");
     }
